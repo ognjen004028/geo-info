@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 
 function DisplayLocation() {
+  const userAgent = 'geo-info/1.0 (https://github.com/ognjen004028/geo-info)';
+  const debounceTimeout = 1000; // 1 second
+
   const [position, setPosition] = useState(null);
   const [error, setError] = useState(null);
-  const [city, setCity] = useState(null);
+  const [location, setLocation] = useState(null);
 
   useEffect(() => {
-    const userAgent = 'MyReactApp/1.0 (https://example.com)';
-    const debounceTimeout = 1000; // 1 second
-
     let timeoutId = null;
 
     navigator.geolocation.getCurrentPosition(
@@ -37,7 +37,8 @@ function DisplayLocation() {
       .then(data => {
         const address = data.address;
         const city = address.city || address.town || address.village;
-        setCity(city);
+        const country = address.country;
+        setLocation(`${city}, ${country}`);
       })
       .catch(error => console.error(error));
   };
@@ -64,10 +65,10 @@ function DisplayLocation() {
       <h2>Display Location</h2>
       <p>Latitude: {position.coords.latitude}</p>
       <p>Longitude: {position.coords.longitude}</p>
-      <p>City: {city}</p>
+      <p>Location: {location}</p>
       <p>
-        Data provided by <a href="https://www.openstreetmap.org/">OpenStreetMap</a> under the{' '}
-        <a href="https://opendatacommons.org/licenses/odbl/">ODbL license</a>.
+        <i>Data provided by <a href="https://www.openstreetmap.org/">OpenStreetMap</a> under the{' '}
+        <a href="https://opendatacommons.org/licenses/odbl/">ODbL license</a>.</i>
       </p>
     </div>
   );
