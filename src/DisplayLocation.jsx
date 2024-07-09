@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import Currency from './Currency';
 
 function DisplayLocation() {
   const userAgent = 'geo-info/1.0 (https://github.com/ognjen004028/geo-info)';
@@ -7,6 +8,7 @@ function DisplayLocation() {
   const [position, setPosition] = useState(null);
   const [error, setError] = useState(null);
   const [location, setLocation] = useState(null);
+  const [country, setCountry] = useState(null);
 
   useEffect(() => {
     let timeoutId = null;
@@ -39,6 +41,7 @@ function DisplayLocation() {
         const city = address.city || address.town || address.village;
         const country = address.country;
         setLocation(`${city}, ${country}`);
+        setCountry(country); // Set the country state
       })
       .catch(error => console.error(error));
   };
@@ -65,7 +68,9 @@ function DisplayLocation() {
       <h2>Display Location</h2>
       <p>Latitude: {position.coords.latitude}</p>
       <p>Longitude: {position.coords.longitude}</p>
-      <p>Location: {location}</p>
+      <p className='location'>Location: {location}</p>
+      <Currency country={country} /> 
+     
       <p>
         <i>Data provided by <a href="https://www.openstreetmap.org/">OpenStreetMap</a> under the{' '}
         <a href="https://opendatacommons.org/licenses/odbl/">ODbL license</a>.</i>
