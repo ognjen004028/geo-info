@@ -87,9 +87,9 @@ function DisplayLocation() {
             <a href="https://opendatacommons.org/licenses/odbl/">ODbL license</a>. <br />
 
             <a href="https://www.exchangerate-api.com">Rates By Exchange Rate API</a> <br />
-            <a href="https://open-meteo.com/">Weather data by Open-Meteo.com</a> 
+            <a href="https://open-meteo.com/">Weather data by Open-Meteo.com</a> <br /> 
 
-            <a>geo-info, Ognjen Maričić 2024.</a>
+            <a href='https://github.com/ognjen004028/geo-info'>GitHub: geo-info</a>, Ognjen Maričić 2024.
         </i>
       </p>
 
