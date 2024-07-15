@@ -18,8 +18,10 @@ function DisplayIP() {
 
   return (
     <div>
-      <h2>IP Address:</h2>
-      <h4>{ip}</h4>
+      <h3>IP Address:</h3>
+      <ul>
+        <li>{ip}</li>
+      </ul>
     </div>
   );
 }
