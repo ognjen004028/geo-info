@@ -89,7 +89,7 @@ function DisplayLocation() {
             <a href="https://www.exchangerate-api.com">Rates By Exchange Rate API</a> <br />
             <a href="https://open-meteo.com/">Weather data by Open-Meteo.com</a> <br /> 
 
-            <a href='https://github.com/ognjen004028/geo-info'>GitHub: geo-info</a>, Ognjen Maričić 2024.
+            <a href='https://github.com/ognjen004028/geo-info'>GitHub: geo-info</a> by ognjen004028
         </i>
       </p>
 
