@@ -69,7 +69,7 @@ function DisplayLocation() {
 
   return (
     <div>
-      
+
       <h3>User Location:</h3>
       <ul>
         <li>Latitude: {position.coords.latitude}</li>
@@ -88,6 +88,8 @@ function DisplayLocation() {
 
             <a href="https://www.exchangerate-api.com">Rates By Exchange Rate API</a> <br />
             <a href="https://open-meteo.com/">Weather data by Open-Meteo.com</a> 
+
+            <a>geo-info, Ognjen Maričić 2024.</a>
         </i>
       </p>
 
