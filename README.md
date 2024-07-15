@@ -1,7 +1,9 @@
 # geo-info
 
 A simple React app that can:
--Display user IP address
--Display user location after asking for permission
--Display the local currency depending on user location and convert it to USD and EUR
--Display the weather for user location
+<ul>
+  <li>Display user IP address</li>
+  <li>Display user location after asking for permission</li>
+  <li>Display the local currency depending on user location and convert it to USD and EUR</li>
+  <li>Display the weather for user location</li>
+</ul>
