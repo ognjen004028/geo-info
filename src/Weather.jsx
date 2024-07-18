@@ -6,7 +6,7 @@ function Weather({ latitude, longitude }) {
   const [nextDayForecast, setNextDayForecast] = useState(null);
 
   useEffect(() => {
-    const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m&forecast_days=2&models=metno_seamless`;
+    const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude.toFixed(2)}&longitude=${longitude.toFixed(2)}&hourly=temperature_2m&forecast_days=2&models=metno_seamless`;
     fetch(apiUrl)
      .then(response => response.json())
      .then(data => {
