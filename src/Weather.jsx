@@ -6,15 +6,17 @@ function Weather({ latitude, longitude }) {
   const [nextDayForecast, setNextDayForecast] = useState(null);
 
   useEffect(() => {
-    const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude.toFixed(2)}&longitude=${longitude.toFixed(2)}&hourly=temperature_2m&forecast_days=2&models=metno_seamless`;
+    const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m&hourly=temperature_2m&timezone=auto&forecast_days=2`;
     fetch(apiUrl)
      .then(response => response.json())
      .then(data => {
-        const currentTemperature = data.hourly.temperature_2m[0];
+        const currentTemperature = data.current.temperature_2m;
         setCurrentTemperature(currentTemperature);
 
         const nextDayForecast = data.hourly.temperature_2m.slice(24, 48);
         setNextDayForecast(nextDayForecast);
+
+        //console.log(data);
       })
      .catch(error => console.error(error));
   }, [latitude, longitude]);
@@ -32,13 +34,13 @@ function Weather({ latitude, longitude }) {
 
       <h3>Forecast for Tomorrow</h3>
       {nextDayForecast? (
-        <LineChart width={400} height={200} data={nextDayForecast.map((temperature, index) => ({ hour: index, temperature }))}>
+      <LineChart width={400} height={200} data={nextDayForecast.map((temperature, index) => ({ hour: `${index}`, temperature }))}>
           <Line type="monotone" dataKey="temperature" stroke="#8884d8" />
           <XAxis dataKey="hour" />
           <YAxis />
           <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
           <Tooltip />
-        </LineChart>
+      </LineChart>
       ) : (
         <p>Loading...</p>
       )}

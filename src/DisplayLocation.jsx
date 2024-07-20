@@ -9,7 +9,7 @@ function DisplayLocation() {
   const [position, setPosition] = useState(null);
   const [error, setError] = useState(null);
   const [location, setLocation] = useState(null);
-  const [country, setCountry] = useState('Loading'); // default country is now 'Loading'
+  const [country, setCountry] = useState('Loading');
 
   useEffect(() => {
     let timeoutId = null;
@@ -85,7 +85,7 @@ function DisplayLocation() {
       <Weather latitude={position.coords.latitude} longitude={position.coords.longitude} />
 
       <p className='licences'>
-        <h4>Licences:</h4>
+        <a>Licences:</a><br />
         <i>
           Location data provided by <a href="https://www.openstreetmap.org/">OpenStreetMap</a> under the{' '}
           <a href="https://opendatacommons.org/licenses/odbl/">ODbL license</a>. <br />
