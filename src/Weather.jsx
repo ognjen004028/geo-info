@@ -36,7 +36,7 @@ function Weather({ latitude, longitude }) {
 
       <h3>Forecast for Tomorrow</h3>
       {nextDayForecast? (
-      <LineChart className='chart' width={isMobile ? 300 : 500} height={200} data={nextDayForecast.map((temperature, index) => ({ hour: `${index}`, temperature }))}>
+      <LineChart className='chart' width={isMobile ? 300 : 500} height={isMobile? 100 : 200} data={nextDayForecast.map((temperature, index) => ({ hour: `${index}`, temperature }))}>
           <Line type="monotone" dataKey="temperature" stroke="#8884d8" />
           <XAxis dataKey="hour" />
           <YAxis />
